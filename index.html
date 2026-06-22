@@ -152,7 +152,7 @@
     box-shadow: 0 8px 32px rgba(69,72,196,0.1);
   }
   .phone-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-  .phone-number { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -1px; color: var(--navy); }
+  .phone-number { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; letter-spacing: -1px; color: var(--navy); white-space: nowrap; }
   .phone-number a { color: inherit; text-decoration: none; }
   .phone-number a:hover { color: var(--accent); }
   .phone-sub { font-size: 13px; color: var(--muted); }
@@ -193,7 +193,7 @@
 
   /* PERSONAS */
   .personas-section { background: var(--lavender-light); border-top: 1px solid var(--border); }
-  .persona-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 2.5rem 0 1.5rem; }
+  .persona-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 1rem 0 1rem; }
   .persona-tab {
     display: flex; align-items: center; gap: 10px;
     padding: 10px 18px; border-radius: 40px; border: 1px solid var(--border);
@@ -338,13 +338,12 @@
       <p class="section-sub" style="max-width:none">Hyro Health uses Genevieve — Hyro's AI voice agent — to handle their most routine, repetitive calls so their staff doesn't have to. Scheduling, prescription refills, appointment management — she handles it all. Give her a call and see what your patients would experience.</p>
     </div>
 
-    <div style="margin-bottom:2rem">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:white;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:20px;margin-bottom:1rem">
-        <span style="background:white;color:var(--accent);border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0">1</span>
+    <div style="margin-bottom:1rem">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:white;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:20px;margin-bottom:0.5rem">
+        <span style="background:white;color:var(--navy);border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0">1</span>
         Pick a patient
       </div>
-      <h2 class="section-title" style="margin-bottom:0.5rem">Choose who you'll be on the call</h2>
-      <p class="section-sub">Depending on what you try, Genevieve may ask for some of this patient's information during the call — so keep it handy.</p>
+      <p class="section-sub" style="margin:0;max-width:none">Depending on what you try, Genevieve may ask for some of this patient's information during the call — so keep it handy.</p>
     </div>
 
     <div class="persona-tabs">
@@ -449,9 +448,9 @@
     </div>
 
     <div style="display:flex;justify-content:center">
-      <div class="phone-showcase" style="max-width:360px;width:100%">
-        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:white;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:20px;margin-bottom:0.25rem">
-          <span style="background:white;color:var(--accent);border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0">2</span>
+      <div class="phone-showcase" style="max-width:480px;width:100%">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:white;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:20px;margin-bottom:0.25rem">
+          <span style="background:white;color:var(--navy);border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0">2</span>
           Call now
         </div>
         <div class="phone-number">1-586-210-8261</div>
