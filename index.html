@@ -1,0 +1,730 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #161453;
+    --navy-mid: #3F3F66;
+    --accent: #4548C4;
+    --accent-hover: #3739a8;
+    --periwinkle: #7583F7;
+    --lavender-bg: #EEEEFF;
+    --lavender-mid: #DEDEFF;
+    --lavender-light: #F5F5FF;
+    --muted: #787894;
+    --border: #E2E2EE;
+    --green: #00754E;
+    --green-bg: #E5F4EF;
+    --red: #D43358;
+    --red-bg: #FFF2F5;
+    --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); background: #fff; color: var(--navy); line-height: 1.6; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between; height: 60px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-svg { display: flex; align-items: center; height: 22px; }
+  .nav-badge {
+    font-size: 11px; padding: 3px 8px; border-radius: 4px;
+    background: var(--lavender-bg); color: var(--accent);
+    border: 1px solid var(--lavender-mid); letter-spacing: 0.3px; font-weight: 600;
+  }
+  .nav-cta {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--accent); color: white;
+    padding: 8px 18px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; text-decoration: none;
+    transition: background 0.15s; border: none; cursor: pointer; font-family: var(--font);
+  }
+  .nav-cta:hover { background: var(--accent-hover); }
+
+  /* HERO — pain-first */
+  .hero {
+    background: var(--navy);
+    min-height: calc(100vh - 60px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 5rem 2rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 800px 500px at 50% 60%, rgba(69,72,196,0.35) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--periwinkle); font-weight: 600;
+    background: rgba(117,131,247,0.12); border: 1px solid rgba(117,131,247,0.3);
+    padding: 6px 14px; border-radius: 20px; margin-bottom: 2rem;
+  }
+  .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem); font-weight: 800;
+    line-height: 1.1; letter-spacing: -2px; margin-bottom: 1.5rem;
+    max-width: 820px; color: white;
+  }
+  .hero h1 em { font-style: normal; color: var(--periwinkle); }
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.15rem); color: rgba(255,255,255,0.65);
+    max-width: 580px; line-height: 1.75; margin-bottom: 2.5rem;
+  }
+  .hero-sub strong { color: white; font-weight: 600; }
+  .hero-cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 3.5rem; }
+  .btn-primary {
+    display: flex; align-items: center; gap: 8px;
+    background: white; color: var(--navy);
+    padding: 14px 28px; border-radius: 10px;
+    font-size: 15px; font-weight: 700; text-decoration: none;
+    transition: all 0.15s; border: none; cursor: pointer; font-family: var(--font);
+  }
+  .btn-primary:hover { background: var(--lavender-bg); }
+  .btn-secondary {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.1); color: white;
+    padding: 14px 28px; border-radius: 10px;
+    font-size: 15px; font-weight: 600; text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2); cursor: pointer; font-family: var(--font);
+    transition: background 0.15s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+
+  /* STAT ROW */
+  .stat-row {
+    display: flex; flex-wrap: wrap; gap: 0; justify-content: center;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px; overflow: hidden; max-width: 720px; width: 100%;
+  }
+  .stat-item {
+    flex: 1; min-width: 160px; padding: 1.25rem 1.5rem; text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-size: 1.9rem; font-weight: 800; color: white; letter-spacing: -1px; display: block; }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+  /* PAIN SECTION */
+  .pain-section { background: white; padding: 5rem 2rem; border-bottom: 1px solid var(--border); }
+  .pain-intro { max-width: 640px; margin-bottom: 3rem; }
+  .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+  .pain-card {
+    border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;
+    position: relative; overflow: hidden;
+  }
+  .pain-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+  .pain-icon { font-size: 24px; margin-bottom: 0.75rem; display: block; }
+  .pain-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 0.4rem; color: var(--navy); }
+  .pain-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .pain-quote {
+    background: var(--lavender-light); border: 1px solid var(--lavender-mid);
+    border-radius: 16px; padding: 1.75rem 2rem; margin-top: 3rem;
+    display: flex; gap: 1.25rem; align-items: flex-start; max-width: 760px;
+  }
+  .pain-quote-mark { font-size: 3rem; color: var(--periwinkle); line-height: 1; flex-shrink: 0; margin-top: -8px; }
+  .pain-quote-text { font-size: 15px; color: var(--navy-mid); line-height: 1.7; font-style: italic; }
+  .pain-quote-attr { font-size: 12px; color: var(--muted); margin-top: 0.5rem; font-style: normal; font-weight: 600; }
+
+  /* INTRO SECTION */
+  .intro-section { background: var(--lavender-light); padding: 5rem 2rem; border-bottom: 1px solid var(--border); }
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 2.5rem; }
+  .intro-text p { font-size: 15px; color: var(--navy-mid); line-height: 1.8; margin-bottom: 1rem; }
+  .capability-list { display: flex; flex-direction: column; gap: 10px; margin-top: 1.5rem; }
+  .capability-item {
+    display: flex; align-items: center; gap: 12px;
+    background: white; border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 14px; font-size: 14px; color: var(--navy); font-weight: 500;
+  }
+  .capability-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+  .phone-showcase {
+    background: white; border: 1.5px solid var(--lavender-mid);
+    border-radius: 20px; padding: 2rem 2.5rem;
+    display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;
+    box-shadow: 0 8px 32px rgba(69,72,196,0.1);
+  }
+  .phone-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .phone-number { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -1px; color: var(--navy); }
+  .phone-number a { color: inherit; text-decoration: none; }
+  .phone-number a:hover { color: var(--accent); }
+  .phone-sub { font-size: 13px; color: var(--muted); }
+  .copy-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--lavender-bg); border: 1px solid var(--lavender-mid);
+    color: var(--accent); font-size: 12px; font-weight: 600;
+    padding: 7px 14px; border-radius: 8px; cursor: pointer;
+    transition: all 0.15s; font-family: var(--font);
+  }
+  .copy-btn:hover { background: var(--lavender-mid); }
+  .phone-chips { display: flex; flex-direction: column; gap: 6px; width: 100%; margin-top: 0.5rem; }
+  .phone-chip {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--lavender-light); border-radius: 8px; padding: 7px 12px;
+    font-size: 12px; color: var(--navy-mid);
+  }
+  .phone-chip-icon { font-size: 13px; }
+
+  /* SECTION WRAPPER */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1060px; margin: 0 auto; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+  .section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 0.75rem; color: var(--navy); }
+  .section-sub { font-size: 1rem; color: var(--muted); max-width: 540px; line-height: 1.7; }
+
+  /* STEPS */
+  .steps-section { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .step-card { background: var(--lavender-light); border: 1px solid var(--lavender-mid); border-radius: 16px; padding: 1.75rem; }
+  .step-num {
+    width: 36px; height: 36px; border-radius: 10px; background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 800; color: white; margin-bottom: 1rem;
+  }
+  .step-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 0.5rem; color: var(--navy); }
+  .step-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* PERSONAS */
+  .personas-section { background: var(--lavender-light); border-top: 1px solid var(--border); }
+  .persona-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 2.5rem 0 1.5rem; }
+  .persona-tab {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 18px; border-radius: 40px; border: 1px solid var(--border);
+    background: white; cursor: pointer; transition: all 0.15s;
+    font-size: 14px; font-weight: 500; color: var(--muted); font-family: var(--font);
+  }
+  .persona-tab:hover { border-color: var(--accent); color: var(--accent); }
+  .persona-tab.active { background: var(--accent); border-color: var(--accent); color: white; }
+  .persona-avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .persona-panel { display: none; }
+  .persona-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .persona-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; }
+  .persona-card h4 { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; font-weight: 600; }
+  .prow { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); gap: 1rem; }
+  .prow:last-child { border-bottom: none; }
+  .prow-label { font-size: 13px; color: var(--muted); flex-shrink: 0; min-width: 80px; }
+  .prow-val { font-size: 13px; color: var(--navy); text-align: right; font-weight: 500; }
+  .prow-val.muted { color: var(--muted); font-weight: 400; }
+  .care-gap-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+  .badge-red { background: var(--red-bg); color: var(--red); border: 1px solid rgba(212,51,88,0.25); }
+  .badge-none { background: var(--lavender-bg); color: var(--accent); border: 1px solid var(--lavender-mid); }
+  .example-says { background: var(--lavender-light); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin-top: 8px; font-size: 13px; color: var(--navy-mid); }
+  .example-says strong { color: var(--accent); font-style: normal; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 4px; }
+
+  /* SKILLS */
+  .skills-section { background: white; border-top: 1px solid var(--border); }
+  .skills-grid { display: grid; gap: 10px; margin-top: 3rem; }
+  .skill-item { background: white; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: border-color 0.15s; }
+  .skill-item:hover { border-color: var(--periwinkle); }
+  .skill-item.open { border-color: var(--accent); }
+  .skill-header {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.25rem 1.5rem; cursor: pointer;
+    user-select: none; width: 100%; text-align: left; background: none; border: none; color: var(--navy); font-family: var(--font);
+  }
+  .skill-item.open .skill-header { background: var(--lavender-light); }
+  .skill-num { width: 30px; height: 30px; flex-shrink: 0; border-radius: 8px; background: var(--lavender-bg); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--accent); }
+  .skill-info { flex: 1; text-align: left; }
+  .skill-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; color: var(--navy); }
+  .skill-tagline { font-size: 12px; color: var(--muted); }
+  .skill-trigger-badge { font-size: 10px; padding: 3px 9px; border-radius: 12px; font-weight: 600; letter-spacing: 0.5px; flex-shrink: 0; }
+  .reactive { background: var(--lavender-bg); color: var(--accent); border: 1px solid var(--lavender-mid); }
+  .proactive { background: var(--green-bg); color: var(--green); border: 1px solid rgba(0,117,78,0.25); }
+  .both { background: var(--lavender-bg); color: var(--navy-mid); border: 1px solid var(--lavender-mid); }
+  .skill-chevron { color: var(--muted); font-size: 18px; transition: transform 0.2s; flex-shrink: 0; }
+  .skill-item.open .skill-chevron { transform: rotate(180deg); color: var(--accent); }
+  .skill-body { display: none; padding: 0 1.5rem 1.5rem; border-top: 1px solid var(--border); }
+  .skill-item.open .skill-body { display: block; }
+  .skill-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin: 1.25rem 0; }
+  .utterances-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+  .utterances { display: flex; flex-direction: column; gap: 8px; }
+  .utterance { display: flex; align-items: flex-start; gap: 10px; background: var(--lavender-light); border: 1px solid var(--lavender-mid); border-radius: 10px; padding: 10px 14px; font-size: 13px; color: var(--navy-mid); }
+  .utterance-q { color: var(--accent); flex-shrink: 0; font-size: 15px; margin-top: 1px; font-weight: 700; }
+  .watch-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); font-weight: 600; margin: 1.25rem 0 0.75rem; }
+  .watch-items { display: flex; flex-direction: column; gap: 8px; }
+  .watch-item { display: flex; align-items: flex-start; gap: 10px; background: var(--red-bg); border: 1px solid rgba(212,51,88,0.2); border-radius: 10px; padding: 10px 14px; font-size: 13px; color: var(--navy-mid); }
+  .watch-icon { color: var(--red); flex-shrink: 0; margin-top: 2px; font-size: 14px; font-weight: 700; }
+
+  /* FOOTER */
+  footer { background: var(--navy); padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-left { font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 500; letter-spacing: 0.5px; }
+  .footer-right { font-size: 12px; color: var(--periwinkle); font-weight: 600; }
+
+  @media (max-width: 720px) {
+    .intro-grid { grid-template-columns: 1fr; }
+    .persona-panel.active { grid-template-columns: 1fr; }
+    nav { padding: 0 1rem; }
+    .nav-badge { display: none; }
+    .stat-item { min-width: 120px; }
+  }
+</style>
+
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Hyro AI voice agent live demo — call 1-586-210-8261 to experience it.</h2>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-svg">
+      <svg xmlns="http://www.w3.org/2000/svg" width="72" height="29" viewBox="0 0 72 29" fill="none" style="height:22px;width:auto">
+        <path d="M69.4492 4.43177L68.5852 1.86572H67.8653L67.0115 4.43177L64.4504 5.28712V6.0085L67.0115 6.87415L67.8653 9.42989H68.5852L69.4492 6.87415L72.0001 6.0085V5.28712L69.4492 4.43177Z" fill="#F34068"/>
+        <path d="M31.4471 6.00879L28.8757 15.1909L25.5123 6.00879L20.6575 6.01909L18.8987 11.1821H21.7684L26.3249 22.3119L23.9695 28.5364H23.8152H29.6677L37.3098 6.00879H31.4471Z" fill="#161453"/>
+        <path d="M51.5188 5.65771C51.5188 5.65771 51.0045 5.65771 50.7885 5.65771C48.608 5.65771 46.6434 6.79131 45.512 8.50201V6.0184H40.3384L38.5898 11.1917H40.3384V22.5174H45.512V16.3856V15.0047C45.512 12.8921 47.2194 11.1814 49.328 11.1814H49.6468C50.2537 9.39858 51.4674 5.84321 51.4674 5.84321L51.5188 5.65771Z" fill="#161453"/>
+        <path d="M62.7004 11.1821V14.4283C62.7004 16.2214 61.2502 17.6745 59.4605 17.6745C57.6708 17.6745 56.2205 16.2214 56.2205 14.4283C56.2205 12.6352 57.6708 11.1821 59.4605 11.1821H62.7004V6.00879H59.4605C54.8114 6.00879 51.0469 9.78057 51.0469 14.4386C51.0469 19.0967 54.8114 22.8684 59.4605 22.8684C64.0993 22.8684 67.8638 19.0967 67.8741 14.4489V11.2027H62.7004V11.1821Z" fill="#161453"/>
+        <path d="M1.74855 22.5173H5.33821H6.92219V16.3856V13.2424C6.92219 11.6966 8.17702 10.4394 9.71986 10.4394C11.2627 10.4394 12.5175 11.6966 12.5175 13.2424V22.507H17.7426V11.8821C17.7426 8.45044 14.9655 5.66797 11.5404 5.66797C10.4398 5.66797 9.42158 5.95653 8.52673 6.45119L6.92219 11.1814V7.72906V2.50421V0H1.74855L0 5.17332H1.74855V22.5173Z" fill="#161453"/>
+      </svg>
+    </span>
+    <span class="nav-badge">LIVE DEMO</span>
+  </a>
+  <a class="nav-cta" href="tel:15862108261">📞 Call now — it's live</a>
+</nav>
+
+<!-- HERO: pain-first -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-dot"></span>
+    Built for healthcare call centers
+  </div>
+  <h1>Your agents shouldn't spend their day<br><em>booking appointments</em></h1>
+  <p class="hero-sub">
+    The average health system call center handles <strong>60–70% routine calls</strong> — scheduling, refills, directions, hold-time transfers. Calls that don't require a human, but get one anyway. Hyro answers them.
+  </p>
+  <div class="hero-cta-row">
+    <a class="btn-primary" href="tel:15862108261">📞 Call and hear it yourself</a>
+    <a class="btn-secondary" href="#how-it-works">See what it can do ↓</a>
+  </div>
+  <div class="stat-row">
+    <div class="stat-item">
+      <span class="stat-num">85%</span>
+      <span class="stat-label">of routine calls resolved without a human</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">24/7</span>
+      <span class="stat-label">coverage with no staffing overhead</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">&lt;2s</span>
+      <span class="stat-label">average answer time, no hold queue</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN SECTION -->
+<div class="pain-section">
+  <div class="container">
+    <div class="pain-intro">
+      <p class="section-eyebrow">The problem</p>
+      <h2 class="section-title">Sound familiar?</h2>
+      <p class="section-sub">These are the conversations we hear from call center leaders at health systems every week.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <span class="pain-icon">📞</span>
+        <h3>Hold times are out of control</h3>
+        <p>Patients waiting 8–15 minutes to ask if parking is free or what time their appointment is. Your best agents are stuck in the queue while complex calls pile up.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon">🌙</span>
+        <h3>After-hours is a black hole</h3>
+        <p>Patients who call at 8pm to reschedule get voicemail. They call back during peak hours. Or worse, they no-show. Either way, you're paying for it.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon">🔁</span>
+        <h3>Agents are burning out on repetitive work</h3>
+        <p>Scheduling, refill requests, directions — the same 10 call types, hundreds of times a day. Turnover is high. Training costs are rising. And the calls keep coming.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon">📊</span>
+        <h3>Leadership wants more with less</h3>
+        <p>HCAHPS scores, cost per call, agent utilization — the pressure to improve everything simultaneously, without adding headcount, keeps getting louder.</p>
+      </div>
+    </div>
+    <div class="pain-quote">
+      <span class="pain-quote-mark">"</span>
+      <div>
+        <p class="pain-quote-text">We had 14 agents spending most of their day on calls that frankly didn't need a human. We needed those people focused on the complex stuff — escalations, clinical questions, patients who actually needed help.</p>
+        <p class="pain-quote-attr">— VP of Patient Experience, top-20 U.S. health system</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO: what is Hyro / the demo -->
+<section class="intro-section" id="how-it-works">
+  <div class="container">
+    <p class="section-eyebrow">The solution</p>
+    <h2 class="section-title">Meet Genevieve — an AI voice agent<br>built specifically for healthcare</h2>
+    <div class="intro-grid">
+      <div class="intro-text">
+        <p>Hyro builds conversational AI voice agents that live on your existing phone line and handle the high-volume, low-complexity calls your agents shouldn't have to take — 24 hours a day, with no hold time.</p>
+        <p>Genevieve is a live Hyro agent deployed for a fictional health system called Hyro Health. She's running the same platform, the same skills, and the same EHR logic your implementation would use.</p>
+        <p style="font-weight:600; color:var(--navy)">Call the number. She'll answer. You'll hear exactly what your patients would.</p>
+        <div class="capability-list">
+          <div class="capability-item"><span class="capability-dot"></span>Schedule, reschedule, and cancel appointments</div>
+          <div class="capability-item"><span class="capability-dot"></span>Handle prescription refill requests</div>
+          <div class="capability-item"><span class="capability-dot"></span>Triage symptoms and route urgent calls safely</div>
+          <div class="capability-item"><span class="capability-dot"></span>Surface overdue preventive screenings proactively</div>
+          <div class="capability-item"><span class="capability-dot"></span>Answer location, hours, and insurance questions</div>
+          <div class="capability-item"><span class="capability-dot"></span>Transfer intelligently — with context — to the right team</div>
+        </div>
+      </div>
+      <div>
+        <div class="phone-showcase">
+          <span class="phone-label">Call to hear it live</span>
+          <div class="phone-number"><a href="tel:15862108261">1-586-210-8261</a></div>
+          <span class="phone-sub">US numbers · Available 24/7 · No hold time</span>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText('15862108261').then(()=>{this.textContent='✓ Copied';setTimeout(()=>{this.innerHTML='Copy number'},1800)})">Copy number</button>
+          <div class="phone-chips">
+            <div class="phone-chip"><span class="phone-chip-icon">👤</span> Use a test patient identity from the list below</div>
+            <div class="phone-chip"><span class="phone-chip-icon">🗣️</span> Say anything naturally — no menu, no "press 1"</div>
+            <div class="phone-chip"><span class="phone-chip-icon">🔒</span> Identity verified by date of birth + zip code</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO TEST -->
+<section class="steps-section">
+  <div class="container">
+    <p class="section-eyebrow">How to test it</p>
+    <h2 class="section-title">Three steps to your first call</h2>
+    <p class="section-sub">No prep required — but pick a patient persona below before dialing for a more realistic experience.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Pick a patient persona</h3>
+        <p>Real health system deployments verify patient identity before accessing records. The test personas below give you working identities so you can experience exactly what a real patient would.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Call the number and just talk</h3>
+        <p>No menus. No "press 1 for scheduling." Genevieve greets you and waits for you to describe why you're calling. Give your persona's name and she'll ask to verify your date of birth and zip.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Try any scenario you'd want handled</h3>
+        <p>Schedule an appointment, ask about a refill, cancel and reschedule, report a symptom, ask for directions. Use the phrases in each skill below if you're not sure what to say first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAS -->
+<section class="personas-section">
+  <div class="container">
+    <p class="section-eyebrow">Test patient identities</p>
+    <h2 class="section-title">Choose who you'll be on the call</h2>
+    <p class="section-sub">Each persona has a full record loaded — upcoming appointments, medications, and clinical flags. Identity is verified by date of birth + zip code, just like a real deployment.</p>
+
+    <div class="persona-tabs">
+      <button class="persona-tab active" onclick="switchPersona('steven', this)">
+        <span class="persona-avatar" style="background:#EEEEFF;color:#4548C4">SJ</span>Steven Jackson
+      </button>
+      <button class="persona-tab" onclick="switchPersona('sarah', this)">
+        <span class="persona-avatar" style="background:#FFF2F5;color:#D43358">SH</span>Sarah Henderson
+      </button>
+      <button class="persona-tab" onclick="switchPersona('james', this)">
+        <span class="persona-avatar" style="background:#E5F4EF;color:#00754E">JB</span>James Baker
+      </button>
+      <button class="persona-tab" onclick="switchPersona('maria', this)">
+        <span class="persona-avatar" style="background:#FFF8EC;color:#B45309">ML</span>Maria Lynn
+      </button>
+    </div>
+
+    <div id="panel-steven" class="persona-panel active">
+      <div class="persona-card">
+        <h4>Identity & record</h4>
+        <div class="prow"><span class="prow-label">Date of birth</span><span class="prow-val">March 11, 1982</span></div>
+        <div class="prow"><span class="prow-label">Zip code</span><span class="prow-val">10031</span></div>
+        <div class="prow"><span class="prow-label">Physician</span><span class="prow-val">Dr. Patricia Lowe, General Internal Medicine</span></div>
+        <div class="prow"><span class="prow-label">Home clinic</span><span class="prow-val muted">Riverside Clinic, 600 Riverside Dr, NY</span></div>
+        <div class="prow"><span class="prow-label">Next appt</span><span class="prow-val">Next business day, 10:30 AM — Office Visit</span></div>
+        <div class="prow"><span class="prow-label">Medication</span><span class="prow-val muted">Meloxicam 15mg daily — 1 refill left</span></div>
+        <div class="prow"><span class="prow-label">Care gap</span><span class="prow-val"><span class="care-gap-badge badge-red">Colonoscopy overdue 105 days</span></span></div>
+      </div>
+      <div class="persona-card">
+        <h4>What to try on this call</h4>
+        <div class="example-says"><strong>Reschedule</strong>"Can I move my appointment tomorrow to a different day?"</div>
+        <div class="example-says"><strong>Rx refill</strong>"I need to refill my prescription." — wait for Genevieve to ask which medication.</div>
+        <div class="example-says"><strong>Proactive care gap</strong>Complete any task, then listen — Genevieve will surface the overdue colonoscopy before she wraps up.</div>
+        <div class="example-says"><strong>Billing transfer</strong>"Can I speak to someone about my bill?" — should route straight through to billing, no questions.</div>
+      </div>
+    </div>
+
+    <div id="panel-sarah" class="persona-panel">
+      <div class="persona-card">
+        <h4>Identity & record</h4>
+        <div class="prow"><span class="prow-label">Date of birth</span><span class="prow-val">August 22, 1985</span></div>
+        <div class="prow"><span class="prow-label">Zip code</span><span class="prow-val">10044</span></div>
+        <div class="prow"><span class="prow-label">Physician</span><span class="prow-val">Dr. Patricia Lowe, General Internal Medicine</span></div>
+        <div class="prow"><span class="prow-label">Home clinic</span><span class="prow-val muted">Riverside Clinic, 600 Riverside Dr, NY</span></div>
+        <div class="prow"><span class="prow-label">Next appt</span><span class="prow-val">Next business day, 2:00 PM — Office Visit</span></div>
+        <div class="prow"><span class="prow-label">Medication</span><span class="prow-val muted">Naproxen 500mg twice daily — 1 refill left</span></div>
+        <div class="prow"><span class="prow-label">Care gap</span><span class="prow-val"><span class="care-gap-badge badge-red">Mammogram overdue 112 days</span></span></div>
+      </div>
+      <div class="persona-card">
+        <h4>What to try on this call</h4>
+        <div class="example-says"><strong>Annual physical</strong>"I'd like to book my yearly wellness exam." — tests the wellness visit scheduling path.</div>
+        <div class="example-says"><strong>Telehealth offer</strong>"I've had knee pain, I want to be seen." Then give a non-physical reason — Genevieve should pivot and offer a video visit instead.</div>
+        <div class="example-says"><strong>Cancel + reschedule</strong>"I need to cancel my appointment." — Genevieve should offer to reschedule before finalizing the cancellation.</div>
+        <div class="example-says"><strong>Proactive care gap</strong>Finish your task and listen — she'll surface the overdue mammogram before ending the call.</div>
+      </div>
+    </div>
+
+    <div id="panel-james" class="persona-panel">
+      <div class="persona-card">
+        <h4>Identity & record</h4>
+        <div class="prow"><span class="prow-label">Date of birth</span><span class="prow-val">June 3, 1983</span></div>
+        <div class="prow"><span class="prow-label">Zip code</span><span class="prow-val">10052</span></div>
+        <div class="prow"><span class="prow-label">Physician</span><span class="prow-val">Dr. Patricia Lowe, General Internal Medicine</span></div>
+        <div class="prow"><span class="prow-label">Home clinic</span><span class="prow-val muted">Riverside Clinic, 600 Riverside Dr, NY</span></div>
+        <div class="prow"><span class="prow-label">Next appt</span><span class="prow-val">Next business day, 11:00 AM — Office Visit</span></div>
+        <div class="prow"><span class="prow-label">Medication</span><span class="prow-val muted">Ibuprofen 600mg as needed — 1 refill left</span></div>
+        <div class="prow"><span class="prow-label">Care gap</span><span class="prow-val"><span class="care-gap-badge badge-none">None configured</span></span></div>
+      </div>
+      <div class="persona-card">
+        <h4>What to try on this call</h4>
+        <div class="example-says"><strong>Lab scheduling</strong>"My doctor wants me to get bloodwork done." — as an existing patient this books directly, no questions about an order.</div>
+        <div class="example-says"><strong>Symptom triage</strong>"I've had a bad headache since this morning." — follow the three triage questions to reach an urgent, same-day, or routine outcome.</div>
+        <div class="example-says"><strong>Mid-triage escalation</strong>During the triage questions, say "just connect me to someone" — Genevieve should route to the nurse line and attach a safety message.</div>
+        <div class="example-says"><strong>FAQ</strong>"What do I need to bring to my appointment?" or "Do you accept my insurance?"</div>
+      </div>
+    </div>
+
+    <div id="panel-maria" class="persona-panel">
+      <div class="persona-card">
+        <h4>Identity & record</h4>
+        <div class="prow"><span class="prow-label">Date of birth</span><span class="prow-val">August 15, 1979</span></div>
+        <div class="prow"><span class="prow-label">Zip code</span><span class="prow-val">10064</span></div>
+        <div class="prow"><span class="prow-label">Physician</span><span class="prow-val">Dr. Patricia Lowe, General Internal Medicine</span></div>
+        <div class="prow"><span class="prow-label">Home clinic</span><span class="prow-val muted">Riverside Clinic, 600 Riverside Dr, NY</span></div>
+        <div class="prow"><span class="prow-label">Next appt</span><span class="prow-val">Next business day, 3:00 PM — Office Visit</span></div>
+        <div class="prow"><span class="prow-label">Medication</span><span class="prow-val muted">Omeprazole 20mg once daily — 1 refill left</span></div>
+        <div class="prow"><span class="prow-label">Care gap</span><span class="prow-val"><span class="care-gap-badge badge-none">None configured</span></span></div>
+      </div>
+      <div class="persona-card">
+        <h4>What to try on this call</h4>
+        <div class="example-says"><strong>New patient experience</strong>Skip the identity check — present as a caller with no record on file to see how Genevieve handles intake without an MRN.</div>
+        <div class="example-says"><strong>New patient + lab</strong>As a new patient, ask to schedule bloodwork — Genevieve should explain an order is needed first and transfer to scheduling.</div>
+        <div class="example-says"><strong>Telehealth</strong>"I'd like a telehealth appointment." — same-day video is offered first, then falls back to standard available slots.</div>
+        <div class="example-says"><strong>Location info</strong>"What are the hours for the Riverside Clinic?" or "Where is the Heart and Vascular Center?"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section">
+  <div class="container">
+    <p class="section-eyebrow">Skills reference</p>
+    <h2 class="section-title">Every call type Genevieve handles</h2>
+    <p class="section-sub">These are the calls your agents take hundreds of times a day. Tap any one to see example phrases and what to listen for.</p>
+
+    <div class="skills-grid">
+
+      <div class="skill-item" id="skill-1">
+        <button class="skill-header" onclick="toggleSkill('skill-1')">
+          <div class="skill-num">1</div>
+          <div class="skill-info">
+            <div class="skill-name">Escalation & Safe Transfer</div>
+            <div class="skill-tagline">Routes to the right human — with context — every time</div>
+          </div>
+          <span class="skill-trigger-badge both">Reactive + auto</span>
+          <span class="skill-chevron">⌄</span>
+        </button>
+        <div class="skill-body">
+          <p class="skill-desc">Handles every call that ends with a human. Fires when a caller asks for a person, but also triggers automatically for urgent symptoms, identity failures, comprehension issues, and silence timeouts. Non-English callers transfer to the language line immediately. The key difference from a traditional IVR: Genevieve passes along what was already discussed, so the agent isn't starting from zero.</p>
+          <p class="utterances-label">Try saying</p>
+          <div class="utterances">
+            <div class="utterance"><span class="utterance-q">→</span>"I want to speak to someone." — with no reason given first, to see how she handles the re-ask.</div>
+            <div class="utterance"><span class="utterance-q">→</span>"I want to talk to someone about my bill." — should route straight to billing with no additional questions.</div>
+            <div class="utterance"><span class="utterance-q">→</span>"I've been feeling dizzy, can I talk to a person?" — should go to clinical screening, not offer a skill.</div>
+            <div class="utterance"><span class="utterance-q">→</span>"I'm having chest pain." — immediate transfer, no questions asked.</div>
+            <div class="utterance"><span class="utterance-q">→</span>Mid-triage: "Just connect me to someone." — listen for the nurse line transfer with the safety message attached.</div>
+          </div>
+          <p class="watch-label">⚠ Things to listen for</p>
+          <div class="watch-items">
+            <div class="watch-item"><span class="watch-icon">!</span>Emergency instructions should be spoken as "nine one one" — three separate digits, not "nine hundred and eleven."</div>
+            <div class="watch-item"><span class="watch-icon">!</span>You should never hear the routing destination read aloud (e.g. "transferring to front desk, non-clinical"). That's a bug.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-item" id="skill-2">
+        <button class="skill-header" onclick="toggleSkill('skill-2')">
+          <div class="skill-num">2</div>
+          <div class="skill-info">
+            <div class="skill-name">Appointment Scheduling</div>
+            <div class="skill-tagline">Wellness, office visits, telehealth, and lab bookings</div>
+          </div>
+          <span class="skill-trigger-badge reactive">Patient-initiated</span>
+          <span class="skill-chevron">⌄</span>
+        </button>
+        <div class="skill-body">
+          <p class="skill-desc">Books new appointments across four visit types: General Wellness (30 min), Office Visit (30 min — requires 3 intake questions), Telehealth (30 min, same-day offered first), and Lab (15 min). New patients without an existing record get a registration link and care team callback rather than a direct confirmation.</p>
+          <p class="utterances-label">Try saying</p>
+          <div class="utterances">
+            <div class="utterance"><span class="utterance-q">→</span>"I'd like to schedule my annual physical." — wellness visit path.</div>
+            <div class="utterance"><span class="utterance-q">→</span>"I've had a sore throat for a few days, I need to come in." — office visit; expect three intake questions before any times are offered.</div>
+            <div class="utterance"><span class="utterance-q">→</span>During the office visit intake, give a non-physical reason — Genevieve should pivot and offer a telehealth visit instead.</div>
+            <div class="utterance"><span class="utterance-q">→</span>"I need to schedule my bloodwork." — books directly as an existing patient; transfers to central scheduling as a new patient.</div>
+          </div>
+          <p class="watch-label">⚠ Things to listen for</p>
+          <div class="watch-items">
+            <div class="watch-item"><span class="watch-icon">!</span>Genevieve should always lead with a specific date and two times — never open with "what date works for you?"</div>
+            <div class="watch-item"><span class="watch-icon">!</span>No weekend dates, ever. No mention of scheduling policy or minimum lead times in conversation.</div>
+            <div class="watch-item"><span class="watch-icon">!</span>New patients should hear a registration link + callback confirmation, not "I've booked you for..."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-item" id="skill-3">
+        <button class="skill-header" onclick="toggleSkill('skill-3')">
+          <div class="skill-num">3</div>
+          <div class="skill-info">
+            <div class="skill-name">Appointment Management</div>
+            <div class="skill-tagline">Confirm, reschedule, or cancel an existing appointment</div>
+          </div>
+          <span class="skill-trigger-badge reactive">Patient-initiated</span>
+          <span class="skill-chevron">⌄</span>
+        </button>
+        <div class="skill-body">
+          <p class="skill-desc">Handles changes to appointments already on record. Each test persona has a next-business-day appointment. Cancellations now always prompt a reschedule offer before finalizing — this was added after a live test caught the agent moving straight to "anything else?" without offering to rebook.</p>
+          <p class="utterances-label">Try saying</p>
+          <div class="utterances">
+            <div class="utterance"><span class="utterance-q">→</span>"Can you confirm my appointment tomorrow?" — should read back the time and visit type on file.</div>
+            <div class="utterance"><span class="utterance-q">→</span>"I need to cancel my appointment." — listen for the reschedule offer before it finalizes.</div>
+            <div class="utterance"><span class="utterance-q">→</span>"Cancel it, and no, don't reschedule." — the reschedule question should be skipped since you answered it in the same breath.</div>
+          </div>
+          <p class="watch-label">⚠ Things to listen for</p>
+          <div class="watch-items">
+            <div class="watch-item"><span class="watch-icon">!</span>A cancellation should never finalize without the reschedule offer, unless you already answered it unprompted.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-item" id="skill-4">
+        <button class="skill-header" onclick="toggleSkill('skill-4')">
+          <div class="skill-num">4</div>
+          <div class="skill-info">
+            <div class="skill-name">Proactive Preventive Care Outreach</div>
+            <div class="skill-tagline">Surfaces overdue screenings — without the patient asking</div>
+          </div>
+          <span class="skill-trigger-badge proactive">Proactive</span>
+          <span class="skill-chevron">⌄</span>
+        </button>
+        <div class="skill-body">
+          <p class="skill-desc">After resolving the caller's original reason, Genevieve checks whether the patient has an overdue preventive screening with a provider order already on file. If so, she surfaces it and offers to book it on the spot. Steven has a colonoscopy overdue 105 days. Sarah has a mammogram overdue 112 days. James and Maria have none — nothing should be mentioned for them.</p>
+          <p class="utterances-label">How to test</p>
+          <div class="utterances">
+            <div class="utterance"><span class="utterance-q">→</span>Call as Steven or Sarah. Complete any task. Then listen — Genevieve should surface the care gap before wrapping up.</div>
+            <div class="utterance"><span class="utterance-q">→</span>Accept the offered slot — should book and queue prep instructions by text if required.</div>
+            <div class="utterance"><span class="utterance-q">→</span>Dispute it: "I already had that done." — she should acknowledge the discrepancy and suggest confirming with the provider's office. No arguing.</div>
+          </div>
+          <p class="watch-label">⚠ Things to listen for</p>
+          <div class="watch-items">
+            <div class="watch-item"><span class="watch-icon">!</span>James and Maria calls should never mention a care gap — there isn't one in their records.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-item" id="skill-5">
+        <button class="skill-header" onclick="toggleSkill('skill-5')">
+          <div class="skill-num">5</div>
+          <div class="skill-info">
+            <div class="skill-name">Prescription Refill Requests</div>
+            <div class="skill-tagline">Handles refill requests end-to-end without an agent</div>
+          </div>
+          <span class="skill-trigger-badge reactive">Patient-initiated</span>
+          <span class="skill-chevron">⌄</span>
+        </button>
+        <div class="skill-body">
+          <p class="skill-desc">Processes prescription refill requests for verified patients. All four demo personas are configured as reactive-only — Genevieve will never mention a medication first. Each has one refill remaining. After processing, she notes it's the final refill and that the next one will require an office visit.</p>
+          <p class="utterances-label">Try saying</p>
+          <div class="utterances">
+            <div class="utterance"><span class="utterance-q">→</span>"I need to refill my prescription." — Genevieve will ask which medication. Name the one for your persona.</div>
+            <div class="utterance"><span class="utterance-q">→</span>After confirming: "Actually, never mind." — Genevieve should explain she can't undo a sent refill and recommend calling the office directly.</div>
+          </div>
+          <p class="watch-label">⚠ Things to listen for</p>
+          <div class="watch-items">
+            <div class="watch-item"><span class="watch-icon">!</span>Genevieve should never bring up a medication unprompted — only if the patient raises it first.</div>
+            <div class="watch-item"><span class="watch-icon">!</span>No clinical commentary on dosage, side effects, or the underlying condition.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-item" id="skill-6">
+        <button class="skill-header" onclick="toggleSkill('skill-6')">
+          <div class="skill-num">6</div>
+          <div class="skill-info">
+            <div class="skill-name">Location, Hours & Directions</div>
+            <div class="skill-tagline">Answers the questions that shouldn't need an agent</div>
+          </div>
+          <span class="skill-trigger-badge reactive">Patient-initiated</span>
+          <span class="skill-chevron">⌄</span>
+        </button>
+        <div class="skill-body">
+          <p class="skill-desc">7 named facilities on file with full addresses, hours, and parking details. All four personas share Riverside Clinic as their home location (Mon–Fri 8 AM–5 PM, $8/hr surface lot). Anything not on the list routes to central scheduling rather than guessing.</p>
+          <p class="utterances-label">Try saying</p>
+          <div class="utterances">
+            <div class="utterance"><span class="utterance-q">→</span>"What are the hours for the Riverside Clinic?"</div>
+            <div class="utterance"><span class="utterance-q">→</span>"Is there parking at the Main Campus?"</div>
+            <div class="utterance"><span class="utterance-q">→</span>"Where is the Heart and Vascular Center?"</div>
+            <div class="utterance"><span class="utterance-q">→</span>Ask about a location that isn't in the system — should refer to central scheduling, not guess.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-item" id="skill-7">
+        <button class="skill-header" onclick="toggleSkill('skill-7')">
+          <div class="skill-num">7</div>
+          <div class="skill-info">
+            <div class="skill-name">General Patient Questions</div>
+            <div class="skill-tagline">Portal, insurance, records, referrals — with hard stops on clinical topics</div>
+          </div>
+          <span class="skill-trigger-badge reactive">Patient-initiated</span>
+          <span class="skill-chevron">⌄</span>
+        </button>
+        <div class="skill-body">
+          <p class="skill-desc">Covers the full range of non-clinical patient questions: portal access, records requests, what to bring, referrals, insurance, and after-hours care. Hard stops are built in for anything that requires a licensed professional — lab results, medication guidance, clinical opinions. These cannot be unlocked by rephrasing the question.</p>
+          <p class="utterances-label">Try saying</p>
+          <div class="utterances">
+            <div class="utterance"><span class="utterance-q">→</span>"How do I access the patient portal?"</div>
+            <div class="utterance"><span class="utterance-q">→</span>"What do I need to bring to my appointment?"</div>
+            <div class="utterance"><span class="utterance-q">→</span>"Do you accept my insurance?"</div>
+            <div class="utterance"><span class="utterance-q">→</span>"Can you tell me my lab results?" — hard stop, every time, regardless of how it's phrased.</div>
+          </div>
+          <p class="watch-label">⚠ Things to listen for</p>
+          <div class="watch-items">
+            <div class="watch-item"><span class="watch-icon">!</span>A clinical question phrased as small talk is still a clinical question. The hard stop should apply regardless of framing.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-left">CONFIDENTIAL — HYRO AI &nbsp;·&nbsp; Demo environment, Genevieve v23</span>
+  <span class="footer-right">hyro.ai</span>
+</footer>
+
+<script>
+function switchPersona(id, btn) {
+  document.querySelectorAll('.persona-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.persona-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleSkill(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+</script>
