@@ -330,18 +330,21 @@
 <!-- PERSONAS + PHONE -->
 <section class="personas-section" id="how-it-works">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;margin-bottom:2rem;flex-wrap:wrap">
-      <div>
-        <p class="section-eyebrow">Step 1 — Pick a patient, then dial</p>
-        <h2 class="section-title" style="margin-bottom:0.5rem">Choose who you'll be on the call</h2>
-        <p class="section-sub">Genevieve verifies identity by date of birth + zip before accessing any record. Grab these before you dial.</p>
+    <div style="background:white;border:1px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:0">
+
+    <div style="margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--border)">
+      <p class="section-eyebrow">Try it live</p>
+      <h2 class="section-title" style="margin-bottom:0.75rem">Meet <em>Genevieve</em></h2>
+      <p class="section-sub" style="max-width:600px">Hyro Health uses Genevieve — Hyro's AI voice agent — to handle their most routine, repetitive calls so their staff doesn't have to. Scheduling, prescription refills, appointment management — she handles it all. Give her a call and see what your patients would experience.</p>
+    </div>
+
+    <div style="margin-bottom:2rem">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:white;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:20px;margin-bottom:1rem">
+        <span style="background:white;color:var(--accent);border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0">1</span>
+        Pick a patient
       </div>
-      <div class="phone-showcase" style="min-width:220px">
-        <span class="phone-label">Call now</span>
-        <div class="phone-number">1-586-210-8261</div>
-        <span class="phone-sub">No hold time · 24/7</span>
-        <button class="copy-btn" onclick="navigator.clipboard.writeText('15862108261').then(()=>{this.textContent='✓ Copied';setTimeout(()=>{this.textContent='Copy number'},1800)})">Copy number</button>
-      </div>
+      <h2 class="section-title" style="margin-bottom:0.5rem">Choose who you'll be on the call</h2>
+      <p class="section-sub">She'll verify identity by date of birth + zip before accessing any record — grab those before you dial.</p>
     </div>
 
     <div class="persona-tabs">
@@ -438,6 +441,26 @@
         <div class="example-says"><strong>Location info</strong>"What are the hours for the Riverside Clinic?" or "Where is the Heart and Vascular Center?"</div>
       </div>
     </div>
+
+    <div style="display:flex;align-items:center;gap:1rem;margin:2rem 0;color:var(--muted)">
+      <div style="flex:1;height:1px;background:var(--border)"></div>
+      <span style="font-size:13px;font-weight:600;letter-spacing:0.5px">then</span>
+      <div style="flex:1;height:1px;background:var(--border)"></div>
+    </div>
+
+    <div style="display:flex;justify-content:center">
+      <div class="phone-showcase" style="max-width:360px;width:100%">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:white;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:20px;margin-bottom:0.25rem">
+          <span style="background:white;color:var(--accent);border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0">2</span>
+          Call now
+        </div>
+        <div class="phone-number">1-586-210-8261</div>
+        <span class="phone-sub">No hold time · 24/7 · No menus</span>
+        <button class="copy-btn" onclick="navigator.clipboard.writeText('15862108261').then(()=>{this.textContent='✓ Copied';setTimeout(()=>{this.textContent='Copy number'},1800)})">Copy number</button>
+      </div>
+    </div>
+
+    </div><!-- end white card -->
   </div>
 </section>
 
