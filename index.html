@@ -281,7 +281,10 @@
     </span>
     <span class="nav-badge">LIVE DEMO</span>
   </a>
-  <a class="nav-cta" href="tel:15862108261">📞 Call now — it's live</a>
+  <div style="display:flex;align-items:center;gap:10px">
+    <span style="font-size:13px;font-weight:700;color:var(--navy);letter-spacing:0.5px">1-586-210-8261</span>
+    <button class="nav-cta" onclick="navigator.clipboard.writeText('15862108261').then(()=>{this.textContent='✓ Copied';setTimeout(()=>{this.textContent='Copy number'},1800)})">Copy number</button>
+  </div>
 </nav>
 
 <!-- HERO: pain-first -->
@@ -294,8 +297,12 @@
   <p class="hero-sub">
     The average health system call center handles <strong>60–70% routine calls</strong> — scheduling, refills, directions, hold-time transfers. Calls that don't require a human, but get one anyway. Hyro answers them.
   </p>
+  <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:1.5rem 2.5rem;margin-bottom:2rem;display:inline-flex;flex-direction:column;align-items:center;gap:0.6rem">
+    <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:600">Call to hear it live</span>
+    <span style="font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1px;color:white">1-586-210-8261</span>
+    <button onclick="navigator.clipboard.writeText('15862108261').then(()=>{this.textContent='✓ Copied';setTimeout(()=>{this.textContent='Copy number'},1800)})" style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:white;font-size:12px;font-weight:600;padding:6px 16px;border-radius:8px;cursor:pointer;font-family:var(--font)">Copy number</button>
+  </div>
   <div class="hero-cta-row">
-    <a class="btn-primary" href="tel:15862108261">📞 Call and hear it yourself</a>
     <a class="btn-secondary" href="#how-it-works">See what it can do ↓</a>
   </div>
   <div class="stat-row">
@@ -376,9 +383,9 @@
       <div>
         <div class="phone-showcase">
           <span class="phone-label">Call to hear it live</span>
-          <div class="phone-number"><a href="tel:15862108261">1-586-210-8261</a></div>
+          <div class="phone-number">1-586-210-8261</div>
           <span class="phone-sub">US numbers · Available 24/7 · No hold time</span>
-          <button class="copy-btn" onclick="navigator.clipboard.writeText('15862108261').then(()=>{this.textContent='✓ Copied';setTimeout(()=>{this.innerHTML='Copy number'},1800)})">Copy number</button>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText('15862108261').then(()=>{this.textContent='✓ Copied';setTimeout(()=>{this.textContent='Copy number'},1800)})">Copy number</button>
           <div class="phone-chips">
             <div class="phone-chip"><span class="phone-chip-icon">👤</span> Use a test patient identity from the list below</div>
             <div class="phone-chip"><span class="phone-chip-icon">🗣️</span> Say anything naturally — no menu, no "press 1"</div>
