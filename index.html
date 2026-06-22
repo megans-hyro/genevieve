@@ -327,74 +327,22 @@
 
 </section>
 
-<!-- INTRO: what is Hyro / the demo -->
-<section class="intro-section" id="how-it-works">
+<!-- PERSONAS + PHONE -->
+<section class="personas-section" id="how-it-works">
   <div class="container">
-    <p class="section-eyebrow">The solution</p>
-    <h2 class="section-title">Meet Genevieve — an AI voice agent<br>built specifically for healthcare</h2>
-    <div class="intro-grid">
-      <div class="intro-text">
-        <p>Hyro builds conversational AI voice agents that live on your existing phone line and handle the high-volume, low-complexity calls your agents shouldn't have to take — 24 hours a day, with no hold time.</p>
-        <p>Genevieve is a live Hyro agent deployed for a fictional health system called Hyro Health. She's running the same platform, the same skills, and the same EHR logic your implementation would use.</p>
-        <p style="font-weight:600; color:var(--navy)">Call the number. She'll answer. You'll hear exactly what your patients would.</p>
-        <div class="capability-list">
-          <div class="capability-item"><span class="capability-dot"></span>Schedule, reschedule, and cancel appointments</div>
-          <div class="capability-item"><span class="capability-dot"></span>Handle prescription refill requests</div>
-          <div class="capability-item"><span class="capability-dot"></span>Triage symptoms and route urgent calls safely</div>
-          <div class="capability-item"><span class="capability-dot"></span>Surface overdue preventive screenings proactively</div>
-          <div class="capability-item"><span class="capability-dot"></span>Answer location, hours, and insurance questions</div>
-          <div class="capability-item"><span class="capability-dot"></span>Transfer intelligently — with context — to the right team</div>
-        </div>
-      </div>
+    <div style="display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;margin-bottom:2rem;flex-wrap:wrap">
       <div>
-        <div class="phone-showcase">
-          <span class="phone-label">Call to hear it live</span>
-          <div class="phone-number">1-586-210-8261</div>
-          <span class="phone-sub">US numbers · Available 24/7 · No hold time</span>
-          <button class="copy-btn" onclick="navigator.clipboard.writeText('15862108261').then(()=>{this.textContent='✓ Copied';setTimeout(()=>{this.textContent='Copy number'},1800)})">Copy number</button>
-          <div class="phone-chips">
-            <div class="phone-chip"><span class="phone-chip-icon">👤</span> Use a test patient identity from the list below</div>
-            <div class="phone-chip"><span class="phone-chip-icon">🗣️</span> Say anything naturally — no menu, no "press 1"</div>
-            <div class="phone-chip"><span class="phone-chip-icon">🔒</span> Identity verified by date of birth + zip code</div>
-          </div>
-        </div>
+        <p class="section-eyebrow">Step 1 — Pick a patient, then dial</p>
+        <h2 class="section-title" style="margin-bottom:0.5rem">Choose who you'll be on the call</h2>
+        <p class="section-sub">Genevieve verifies identity by date of birth + zip before accessing any record. Grab these before you dial.</p>
+      </div>
+      <div class="phone-showcase" style="min-width:220px">
+        <span class="phone-label">Call now</span>
+        <div class="phone-number">1-586-210-8261</div>
+        <span class="phone-sub">No hold time · 24/7</span>
+        <button class="copy-btn" onclick="navigator.clipboard.writeText('15862108261').then(()=>{this.textContent='✓ Copied';setTimeout(()=>{this.textContent='Copy number'},1800)})">Copy number</button>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- HOW TO TEST -->
-<section class="steps-section">
-  <div class="container">
-    <p class="section-eyebrow">How to test it</p>
-    <h2 class="section-title">Three steps to your first call</h2>
-    <p class="section-sub">No prep required — but pick a patient persona below before dialing for a more realistic experience.</p>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>Pick a patient persona</h3>
-        <p>Real health system deployments verify patient identity before accessing records. The test personas below give you working identities so you can experience exactly what a real patient would.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>Call the number and just talk</h3>
-        <p>No menus. No "press 1 for scheduling." Genevieve greets you and waits for you to describe why you're calling. Give your persona's name and she'll ask to verify your date of birth and zip.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <h3>Try any scenario you'd want handled</h3>
-        <p>Schedule an appointment, ask about a refill, cancel and reschedule, report a symptom, ask for directions. Use the phrases in each skill below if you're not sure what to say first.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PERSONAS -->
-<section class="personas-section">
-  <div class="container">
-    <p class="section-eyebrow">Test patient identities</p>
-    <h2 class="section-title">Choose who you'll be on the call</h2>
-    <p class="section-sub">Each persona has a full record loaded — upcoming appointments, medications, and clinical flags. Identity is verified by date of birth + zip code, just like a real deployment.</p>
 
     <div class="persona-tabs">
       <button class="persona-tab active" onclick="switchPersona('steven', this)">
