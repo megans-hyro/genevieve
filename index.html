@@ -287,79 +287,57 @@
   </div>
 </nav>
 
-<!-- HERO: pain-first -->
-<section class="hero">
+<!-- HERO + PAIN: combined -->
+<section class="hero" style="padding-bottom:5rem">
   <div class="hero-eyebrow">
     <span class="hero-eyebrow-dot"></span>
     Built for healthcare call centers
   </div>
   <h1>Your agents shouldn't spend their day<br><em>booking appointments</em></h1>
   <p class="hero-sub">
-    The average health system call center handles <strong>60–70% routine calls</strong> — scheduling, refills, directions, hold-time transfers. Calls that don't require a human, but get one anyway. Hyro answers them.
+    The average health system routes <strong>60–70% routine calls</strong> to a human who didn't need to pick up. Hold times climb. Agents burn out. Patients give up. Hyro answers those calls instead.
   </p>
-  <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:1.5rem 2.5rem;margin-bottom:2rem;display:inline-flex;flex-direction:column;align-items:center;gap:0.6rem">
+  <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:1.5rem 2.5rem;margin-bottom:2.5rem;display:inline-flex;flex-direction:column;align-items:center;gap:0.6rem">
     <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:600">Call to hear it live</span>
     <span style="font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1px;color:white">1-586-210-8261</span>
     <button onclick="navigator.clipboard.writeText('15862108261').then(()=>{this.textContent='✓ Copied';setTimeout(()=>{this.textContent='Copy number'},1800)})" style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:white;font-size:12px;font-weight:600;padding:6px 16px;border-radius:8px;cursor:pointer;font-family:var(--font)">Copy number</button>
   </div>
-  <div class="hero-cta-row">
-    <a class="btn-secondary" href="#how-it-works">See what it can do ↓</a>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;max-width:900px;width:100%;margin-bottom:2.5rem">
+    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:1.25rem 1.5rem;text-align:left">
+      <div style="font-size:20px;margin-bottom:0.5rem">📞</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:0.3rem">Hold times out of control</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5">Patients waiting 10+ minutes to ask about parking or confirm an appointment time.</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:1.25rem 1.5rem;text-align:left">
+      <div style="font-size:20px;margin-bottom:0.5rem">🌙</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:0.3rem">After-hours is a black hole</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5">Patients who call at 8pm to reschedule get voicemail — and no-show the next day.</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:1.25rem 1.5rem;text-align:left">
+      <div style="font-size:20px;margin-bottom:0.5rem">🔁</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:0.3rem">Agents stuck on repeat</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5">The same 10 call types, hundreds of times a day. Turnover rises. Complex calls wait.</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:1.25rem 1.5rem;text-align:left">
+      <div style="font-size:20px;margin-bottom:0.5rem">📊</div>
+      <div style="font-size:14px;font-weight:700;color:white;margin-bottom:0.3rem">More with less — every year</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5">HCAHPS scores, cost per call, agent utilization — the pressure never stops, the headcount does.</div>
+    </div>
   </div>
-  <div class="stat-row">
-    <div class="stat-item">
-      <span class="stat-num">85%</span>
-      <span class="stat-label">of routine calls resolved without a human</span>
+
+  <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:1.5rem 2rem;max-width:680px;width:100%;display:flex;gap:1rem;align-items:flex-start;text-align:left">
+    <span style="font-size:2.5rem;color:var(--periwinkle);line-height:1;flex-shrink:0;margin-top:-6px">"</span>
+    <div>
+      <p style="font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7;font-style:italic">We had 14 agents spending most of their day on calls that didn't need a human. We needed those people on escalations, clinical questions — the calls that actually matter.</p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:0.5rem;font-weight:600">— VP of Patient Experience, top-20 U.S. health system</p>
     </div>
-    <div class="stat-item">
-      <span class="stat-num">24/7</span>
-      <span class="stat-label">coverage with no staffing overhead</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">&lt;2s</span>
-      <span class="stat-label">average answer time, no hold queue</span>
-    </div>
+  </div>
+
+  <div style="margin-top:2rem">
+    <a class="btn-secondary" href="#how-it-works">See what Hyro handles instead ↓</a>
   </div>
 </section>
-
-<!-- PAIN SECTION -->
-<div class="pain-section">
-  <div class="container">
-    <div class="pain-intro">
-      <p class="section-eyebrow">The problem</p>
-      <h2 class="section-title">Sound familiar?</h2>
-      <p class="section-sub">These are the conversations we hear from call center leaders at health systems every week.</p>
-    </div>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <span class="pain-icon">📞</span>
-        <h3>Hold times are out of control</h3>
-        <p>Patients waiting 8–15 minutes to ask if parking is free or what time their appointment is. Your best agents are stuck in the queue while complex calls pile up.</p>
-      </div>
-      <div class="pain-card">
-        <span class="pain-icon">🌙</span>
-        <h3>After-hours is a black hole</h3>
-        <p>Patients who call at 8pm to reschedule get voicemail. They call back during peak hours. Or worse, they no-show. Either way, you're paying for it.</p>
-      </div>
-      <div class="pain-card">
-        <span class="pain-icon">🔁</span>
-        <h3>Agents are burning out on repetitive work</h3>
-        <p>Scheduling, refill requests, directions — the same 10 call types, hundreds of times a day. Turnover is high. Training costs are rising. And the calls keep coming.</p>
-      </div>
-      <div class="pain-card">
-        <span class="pain-icon">📊</span>
-        <h3>Leadership wants more with less</h3>
-        <p>HCAHPS scores, cost per call, agent utilization — the pressure to improve everything simultaneously, without adding headcount, keeps getting louder.</p>
-      </div>
-    </div>
-    <div class="pain-quote">
-      <span class="pain-quote-mark">"</span>
-      <div>
-        <p class="pain-quote-text">We had 14 agents spending most of their day on calls that frankly didn't need a human. We needed those people focused on the complex stuff — escalations, clinical questions, patients who actually needed help.</p>
-        <p class="pain-quote-attr">— VP of Patient Experience, top-20 U.S. health system</p>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- INTRO: what is Hyro / the demo -->
 <section class="intro-section" id="how-it-works">
